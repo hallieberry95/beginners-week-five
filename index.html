@@ -6,18 +6,92 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Starter Template for Bootstrap</title>
+    <title>Money Moves</title>
 
     <!-- ADD BOOTSTRAP CORE HERE!!!! -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 
+<!--
+<script src="js/myscript.js"> </script>
+-->
     <!-- Custom styles for this template -->
     <link href="css/styles.css" rel="stylesheet">
+    <title>Form Validation</title>
+  <script type="text/javascript">
+    var divs = new Array();
+    divs[0] = "errFirst";
+    divs[1] = "errLast";
+    divs[2] = "errEmail";
+    divs[3] = "errUid";
+    divs[4] = "errPassword";
+    divs[5] = "errConfirm";
+    function validate()
+	{
+      var inputs = new Array();
+      inputs[0] = document.getElementById('full name').value;
+      inputs[1] = document.getElementById('email').value;
+      inputs[2] = document.getElementById('uid').value;
+      inputs[3] = document.getElementById('confirm').value;
+      var errors = new Array();
+      errors[0] = "<span style='color:red'>Please enter your full name!</span>";
+      errors[1] = "<span style='color:red'>Please enter your email!</span>";
+      errors[2] = "<span style='color:red'>Please enter your uid!</span>";
+      errors[3] = "<span style='color:red'>Please press confirm!</span>";
+      for (i in inputs)
+      {
+        var errMessage = errors[i];
+        var div = divs[i];
+        if (inputs[i] == "")
+        	document.getElementById(div).innerHTML = errMessage;
+        else if (i==2)
+        {
+          var atpos=inputs[i].indexOf("@");
+          var dotpos=inputs[i].lastIndexOf(".");
+          if (atpos<1 || dotpos<atpos+2 || dotpos+2>=inputs[i].length)
+        	document.getElementById('errEmail').innerHTML = "<span style='color: red'>Enter a valid email address!</span>";
+          else
+        	document.getElementById(div).innerHTML = "OK!";
+        }
+        else if (i==5)
+        {
+          var first = document.getElementById('password').value;
+          var second = document.getElementById('confirm').value;
+          if (second != first)
+        	document.getElementById('errConfirm').innerHTML = "<span style='color: red'>Your passwords don't match!</span>";
+          else
+       		document.getElementById(div).innerHTML = "OK!";
+        }
+        else
+        	document.getElementById(div).innerHTML = "OK!";
+       }
+     }
+        function finalValidate()
+        {
+          var count = 0;
+          for(i=0;i<6;i++)
+          {
+            var div = divs[i];
+            if(document.getElementById(div).innerHTML == "OK!") {
+              count = count + 1;
+            }
+          }
+          if(count == 6) {
+            alert('Free code 10%')
+          	document.getElementById("errFinal").innerHTML = "All the data you entered is correct!!!";
+          }
+        }
+   </script>
   </head>
 
-  <body>
+  <body onload="hide();">
+
+
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="#">Navbar!!!!</a>
+      <a class="navbar-brand" href="#"> Need more info?</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -28,7 +102,7 @@
             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="#">About</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Another Link</a>
@@ -40,25 +114,75 @@
     <main role="main" class="container">
 
       <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+        <h1>Money Moves</h1>
+        <p class="lead">.<br> How to get started with your own business project.</p>
       </div>
 
+
+</main>
+
+
+
+
+
       <!-- columns -->
-      <div class="row">
-        <div class="col-sm">
-          <!-- add an image here -->
-          One of three columns
-        </div>
-        <div class="col-sm">
-          <!-- add an image here -->
-          One of three columns
-        </div>
-        <div class="col-sm">
-          <!-- add an image here -->
-          One of three columns
+
+        <div class="container">
+          <div class="row"
+            <div class="col-xs-12 col-sm-4"></div>
+            <!-- add an image here -->
+              <img src="images/cheshire.jpg" class="grid-image" width="10px height="10px">
+              <h1>
+                Product 1
+                </h1>
+            </div>
+            <div class="container">
+              <div class="row"
+                <div class="col-xs-12 col-sm-4"></div>
+
+              <!-- add an image here -->
+              <img src="images/trumpf.jpg"  class="grid-image">
+                  <h1>
+                    Product 2
+                  </h1>
+                  <div class="container">
+                    <div class="row"
+                      <div class="col-xs-12 col-sm-4"></div>
+              <!-- add an image here -->
+              <img src="images/joecool.jpg" class="grid-image">
+              <h1> One of three columns
+              </h1>
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="images/trumpf.jpg" class="d-block w-80" alt="trump balloon">
+          </div>
+          <div class="carousel-item">
+            <img src="images/cheshire.jpg" width="80px" class="d-block w-20" alt="missing image">
+          </div>
+          <div class="carousel-item">
+            <img src="images/joecool.jpg" class="d-block w-80" alt="...">
+          </div>
+          <div class="carousel-item">
+          <img src="images/clone-in-desktop-example.png" class="d-block w-80" alt="">
         </div>
       </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
 
       <!-- Add another row here -->
     </main><!-- /.container -->
@@ -70,5 +194,43 @@
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/popper.min.js"></script>
     <script src="https://getbootstrap.com/docs/4.1/dist/js/bootstrap.min.js"></script>
+
+    //
+    <table id="table1">
+      <tr>
+        <td>First Name:</td>
+        <td><input type="text" id="first" onkeyup="validate();" /></td>
+        <td><div id="errFirst"></div></td>
+      </tr>
+      <tr>
+        <td>Last Name:</td>
+        <td><input type="text" id="last" onkeyup="validate();"/></td>
+        <td><div id="errLast"></div></td>
+      </tr>
+      <tr>
+        <td>Email:</td>
+        <td><input type="text" id="email" onkeyup="validate();"/></td>
+        <td><div id="errEmail"></div></td>
+      </tr>
+      <tr>
+        <td>User Id:</td>
+        <td><input type="text" id="uid" onkeyup="validate();"/></td>
+        <td><div id="errUid"></div></td>
+      </tr>
+      <tr>
+        <td>Password:</td>
+        <td><input type="password" id="password" onkeyup="validate();"/></td>
+        <td><div id="errPassword"></div></td>
+      </tr>
+      <tr>
+        <td>Confirm Password:</td>
+        <td><input type="password" id="confirm" onkeyup="validate();"/></td>
+        <td><div id="errConfirm"></div></td>
+      </tr>
+      <tr>
+        <td><input type="button" id="create" value="Create" onclick="validate();finalValidate();"/></td>
+        <td><div id="errFinal"></div></td>
+      </tr>
+	</table>
   </body>
 </html>
